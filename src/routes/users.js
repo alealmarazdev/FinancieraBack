@@ -28,7 +28,7 @@ router.post('/', async (req, res) => {
   }
 })
 
-router.post('/auth', auth, async (req, res) => {
+router.post('/auth',  async (req, res) => {
   try {
     const {
       password,

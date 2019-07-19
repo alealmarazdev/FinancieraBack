@@ -58,6 +58,8 @@ const logIn = async (email, password) => {
 
   const isValidPassword = await bcrypt.compare(password, user.password)
   if (!isValidPassword) throw new Error('Email ó contraseña incorrecta')
+  const date = await moment().format()
+  const userData = {lastLogin: date}
 
   return jwt.sign({ id: user._id }, 'secretword', { expiresIn: '7d' })
 }
@@ -132,6 +134,8 @@ const updateScore = async (userId, themeId) => {
 
 }
 
+const verifyJwt = token => jwt.verify(token,'secretword')
+
 module.exports = {
   signUp,
   logIn,
@@ -139,5 +143,6 @@ module.exports = {
   updateById,
   getAll,
   getById,
-  updateScore
+  updateScore,
+  verifyJwt
 }
