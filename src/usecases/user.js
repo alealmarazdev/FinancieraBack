@@ -1,4 +1,6 @@
 const jwt = require('jsonwebtoken')
+const moment = require('moment')
+
 
 const { model: User } = require('../models/user')
 const { model: Theme } = require('../models/theme')
@@ -25,6 +27,7 @@ const signUp = async (userData = {}) => {
   } = userData
 
   const hash = await bcrypt.hash(password)
+  const date = await moment().format()
 
   const user = new User({
     email,
@@ -33,10 +36,10 @@ const signUp = async (userData = {}) => {
     userName,
     age,
     gender,
-    createdAt,
+    createdAt: date,
     isActived,
     isBloquedForum,
-    lastLogin,
+    lastLogin: date,
     ocupation,
     city,
     score,
