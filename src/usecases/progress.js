@@ -1,16 +1,19 @@
 const { model: Progress } = require('../models/progress')
 
+
 const newProgress = async (progressData = {}) => {
   const {
     idUser,
     idTopic,
-    idTheme
+    idTheme,
+    lastLevel
   } = progressData
 
   const progress = new Progress({
     idUser,
     idTopic,
-    idTheme
+    idTheme,
+    lastLevel
   })
   const error = progress.validateSync()
   if (error) throw error
@@ -31,6 +34,7 @@ const getById = async (progressId) => {
   const foundProgress = await Progress.findById(progressId).lean()
   return foundProgress
 }
+
 
 module.exports = {
   newProgress,
