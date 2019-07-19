@@ -1,3 +1,4 @@
+/*
 const mongoose = require('mongoose')
 
 const connectionString = 'mongodb+srv://FINANCIE:financie@financie-db-zbljq.mongodb.net/test?retryWrites=true&w=majority'
@@ -10,8 +11,8 @@ const connect = () => new Promise((resolve, reject) => {
 })
 
 module.exports = { connect }
-
-/* const mongoose = require('mongoose')
+*/
+const mongoose = require('mongoose')
 const atob = require('atob')
 
 const DB_NAME = 'fishnance'
@@ -33,4 +34,4 @@ const connect = () => new Promise((resolve, reject) => {
 module.exports = {
   connect
 }
-*/
+
