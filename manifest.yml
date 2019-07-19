@@ -1,0 +1,7 @@
+applications:
+- path: .
+  memory: 180M
+  instances: 1
+  name: fishnance-back
+  routes:
+  - route: fishnance-back.mybluemix.net
