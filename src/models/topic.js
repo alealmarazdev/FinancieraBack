@@ -23,6 +23,11 @@ const topicSchema = new Schema({
   requirements: {
     type: Array,
     default: []
+  },
+
+  position:{
+    type: Number,
+    required: true
   }
 })
 

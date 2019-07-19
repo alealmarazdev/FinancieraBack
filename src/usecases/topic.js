@@ -5,14 +5,16 @@ const newTopic = async (topicData = {}) => {
     name,
     icon,
     description,
-    requeriments
+    requeriments,
+    pisicion
   } = topicData
 
   const topic = new Topic({
     name,
     icon,
     description,
-    requeriments
+    requeriments,
+    pisicion
   })
   const error = topic.validateSync()
   if (error) throw error
