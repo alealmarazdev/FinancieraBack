@@ -76,7 +76,7 @@ router.get('/', async (req, res) => {
   try {
     const topics = await topic.getAll()
     res.json({
-      succes: true,
+      success: true,
       message: 'todos los topicos obtenidos',
       payload: {
         topics
