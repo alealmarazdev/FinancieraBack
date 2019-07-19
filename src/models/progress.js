@@ -14,6 +14,10 @@ const progressSchema = new Schema({
   idTheme: {
     type: String,
     required: true
+  },
+  lastLevel:{
+    type: Number,
+    defaul: 1
   }
 
 })
