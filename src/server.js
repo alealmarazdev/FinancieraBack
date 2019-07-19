@@ -13,7 +13,7 @@ app.use(express.json())
 app.use('/users', userRouter)
 app.use('/topics', topicRouter)
 app.use('/themes', themeRouter)
-app.use('/procces', progressRouter)
+app.use('/progresses', progressRouter)
 
 app.get('/', (request, response) => {
   response.json({
