@@ -58,10 +58,15 @@ const logIn = async (email, password) => {
 
   const isValidPassword = await bcrypt.compare(password, user.password)
   if (!isValidPassword) throw new Error('Email ó contraseña incorrecta')
-  const date = await moment().format()
-  const userData = {lastLogin: date}
 
   return jwt.sign({ id: user._id }, 'secretword', { expiresIn: '7d' })
+}
+
+const userByEmail= async (email) =>{
+  const user = await User.findOne({ email }).lean()
+  if (!user) throw new Error('usuario no exite con ese email')
+
+  return user._id
 }
 
 const deleteById = (userId) => User.findByIdAndDelete(userId)
@@ -144,5 +149,6 @@ module.exports = {
   getAll,
   getById,
   updateScore,
-  verifyJwt
+  verifyJwt,
+  userByEmail
 }

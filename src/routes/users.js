@@ -35,11 +35,13 @@ router.post('/auth',  async (req, res) => {
       email
     } = req.body
     const token = await user.logIn(email, password)
+    const id = await user.userByEmail(email)
     res.json({
       success: true,
       message: 'inicio de sesion exitoso',
       payload: {
-        token
+        token,
+        id
       }
     })
   } catch (error) {
